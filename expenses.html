@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Expenses - Personal Finance Tracker</title>
+  <link rel="stylesheet" href="expenses.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+</head>
+<body>
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="logo-section">
+      <img src="logo.jpg" alt="Logo" class="logo-img" />
+      <h2>Personal Finance Tracker</h2>
+    </div>
+
+    <nav class="nav">
+      <a href="dashboard.html" ><i>📊</i> Dashboard</a>
+      <a href="expenses.html" class="active"><i>💸</i> Expenses</a>
+      <a href="income.html"><i>💰</i> Income</a>
+      <a href="budget.html"><i>📅</i> Budget</a>
+    </nav>
+
+    <div class="logout">
+      <a href="#" id="logoutBtn"><i>🚪</i> Logout</a>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main">
+    <div class="top-bar">
+      <i class="fa fa-bars menu-icon" onclick="toggleSidebar()"></i>
+      <h1>Expenses</h1>
+    </div>
+
+    <div class="content">
+      <div class="form-box">
+        <h2>EXPENSE</h2>
+        <label>Category</label>
+        <input type="text" id="category" readonly onclick="openCategoryPopup()" />
+        <label>Amount</label>
+        <input type="number" id="amount" />
+        <label>Date</label>
+        <input type="date" id="date" />
+        <label>Notes</label>
+        <textarea id="notes"></textarea>
+        <button id="addBtn" onclick="addExpense()">ADD</button>
+        <button id="updateBtn" style="display:none" onclick="updateExpense()">UPDATE</button>
+      </div>
+
+      <div class="list-box">
+        <div class="month-nav">
+          <i class="fa fa-chevron-left" onclick="prevMonth()"></i>
+          <span id="month-display"></span>
+          <i class="fa fa-chevron-right" onclick="nextMonth()"></i>
+        </div>
+
+        <div class="total-area">
+          <span id="count"></span>
+          <span id="total"></span>
+        </div>
+
+        <table id="transaction-table"></table>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY POPUP -->
+  <div id="categoryPopup" class="popup">
+    <div class="popup-box">
+      <h2>SELECT CATEGORY</h2>
+      <input
+        type="text"
+        id="searchCategory"
+        class="cat-search"
+        placeholder="Search..."
+        onkeyup="filterCategory()"
+      />
+      <ul id="categoryList"></ul>
+      <input
+        type="text"
+        id="newCategory"
+        class="custom-cat"
+        placeholder="Add custom category"
+      />
+      <div class="cat-buttons">
+        <button class="back-btn" onclick="closePopup()">BACK</button>
+        <button class="add-btn" onclick="addCustomCategory()">ADD</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DELETE CONFIRM -->
+  <div id="confirmPopup" class="popup">
+    <div class="popup-content small">
+      <p>Are you sure you want to delete?</p>
+      <div class="buttons">
+        <button onclick="confirmDelete(true)">Yes</button>
+        <button onclick="confirmDelete(false)">No</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="expenses.js"></script>
+  <script>
+    // Logout redirect
+    document.getElementById("logoutBtn").addEventListener("click", function (e) {
+      e.preventDefault();
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>

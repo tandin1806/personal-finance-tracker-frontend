@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Personal Finance Tracker - Budget</title>
+  <link rel="stylesheet" href="budget.css" />
+  <script defer src="budget.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="logo.jpg" alt="Logo" />
+        <h2>Personal Finance Tracker</h2>
+      </div>
+
+      <nav class="nav">
+        <a href="dashboard.html"><i>📊</i> Dashboard</a>
+        <a href="expenses.html"><i>💸</i> Expenses</a>
+        <a href="income.html"><i>💰</i> Income</a>
+        <a href="budget.html" class="active"><i>📅</i> Budget</a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <a href="#" id="logoutBtn" class="logout"><i>🚪</i> Logout</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="topbar">
+        <i class="fa fa-bars menu-icon" id="menuToggle"></i>
+        <h1>Budget</h1>
+      </header>
+
+      <section class="budget-section">
+        <!-- Weekly Budgets -->
+        <div class="budget-box">
+          <h3>WEEKLY BUDGETS</h3>
+          <div class="budget-card" data-type="weekly">
+            <div class="budget-header">
+              <div>
+                <div class="budget-title">Entertainment</div>
+                <div class="date-range">25/08/2025 - 31/08/2025</div>
+              </div>
+              <div class="actions">
+                <button class="edit-btn">✏️</button>
+                <button class="delete-btn">🗑️</button>
+              </div>
+            </div>
+            <div class="progress-bar"><div style="width:0%"></div></div>
+            <div class="amounts">
+              <span>Nu.0.00</span>
+              <span>Nu.0.00</span>
+              <span>Nu.30.00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Monthly Budgets -->
+        <div class="budget-box">
+          <h3>MONTHLY BUDGETS</h3>
+
+          <div class="budget-card" data-type="monthly">
+            <div class="budget-header">
+              <div>
+                <div class="budget-title">Shopping</div>
+                <div class="date-range">25/08/2025 - 25/09/2025</div>
+              </div>
+              <div class="actions">
+                <button class="edit-btn">✏️</button>
+                <button class="delete-btn">🗑️</button>
+              </div>
+            </div>
+            <div class="progress-bar"><div style="width:16%"></div></div>
+            <div class="amounts">
+              <span>Nu.0.00</span>
+              <span>Nu.16.00</span>
+              <span>Nu.100.00</span>
+            </div>
+            <p class="residual">Residual amount: Nu.84.00</p>
+          </div>
+
+          <div class="budget-card" data-type="monthly">
+            <div class="budget-header">
+              <div>
+                <div class="budget-title">Transportation</div>
+                <div class="date-range">02/09/2025 - 02/10/2025</div>
+              </div>
+              <div class="actions">
+                <button class="edit-btn">✏️</button>
+                <button class="delete-btn">🗑️</button>
+              </div>
+            </div>
+            <div class="progress-bar"><div style="width:0%"></div></div>
+            <div class="amounts">
+              <span>Nu.0.00</span>
+              <span>Nu.0.00</span>
+              <span>Nu.120.00</span>
+            </div>
+            <p class="residual">Residual amount: Nu.120.00</p>
+          </div>
+        </div>
+      </section>
+
+      <button class="add-btn" id="add-budget">+</button>
+    </main>
+  </div>
+
+  <script>
+    const sidebar = document.querySelector('.sidebar');
+    const menuToggle = document.getElementById('menuToggle');
+    menuToggle.addEventListener('click', () => sidebar.classList.toggle('show'));
+
+    document.getElementById('logoutBtn').addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>

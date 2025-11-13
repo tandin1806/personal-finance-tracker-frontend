@@ -1,0 +1,261 @@
+/* === GENERAL === */
+* {
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.container {
+  display: flex;
+}
+
+/* === SIDEBAR === */
+.sidebar {
+  width: 230px;
+  background-color: #D9D9D9;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 15px;
+}
+
+.logo {
+  text-align: center;
+}
+
+.logo img {
+  width: 70px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.logo h2 {
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+/* move links slightly up */
+.nav {
+  margin-top: -10px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #222;
+  font-size: 16px;
+  padding: 12px 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.3s, padding-left 0.3s; /* 👈 Smooth hover animation */
+  text-align: left;
+  cursor: pointer;
+  user-select: none;
+}
+
+.nav a:hover,
+.nav a.active {
+  background-color: #D9D9D9;
+  border-radius: 8px;
+  padding-left: 30px; /* 👈 Slight slide effect */
+}
+
+.sidebar-bottom {
+  margin-bottom: 20px;
+  padding-left: 10px;
+}
+
+.sidebar-bottom a.logout {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #222;
+  font-size: 16px;
+  padding: 12px 25px;
+  transition: background 0.3s, padding-left 0.3s;
+  border-radius: 8px;
+}
+
+.sidebar-bottom a.logout:hover {
+  background-color: #D9D9D9;
+  padding-left: 30px;
+  color: #000;
+}
+
+/* === TOP BAR (matched with expense.css) === */
+.topbar {
+  background-color: #2a7c76;
+  color: white;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  font-size: 18px;
+
+  position: fixed;
+  top: 0;
+  left: 230px; /* align after sidebar */
+  right: 0;
+  z-index: 999;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.topbar i.menu-icon {
+  font-size: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.topbar h1 {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* restore hamburger icon in topbar — only this */
+.topbar .menu-icon,
+.top-bar .menu-icon {
+  display: inline-block;
+  font-size: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* === MAIN CONTENT === */
+.main-content {
+  margin-left: 230px;
+  padding: 80px 40px 20px 40px; /* extra top padding for fixed topbar */
+  width: calc(100% - 230px);
+}
+
+.budget-section {
+  margin-top: 25px;
+}
+
+.budget-box {
+  background: #f2d9d9;
+  padding: 20px 25px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+}
+
+.budget-box h3 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.budget-card {
+  background: #f8e4e4;
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+}
+
+.budget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.budget-title {
+  font-weight: bold;
+}
+
+.date-range {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.progress-bar {
+  background: #ddd;
+  height: 6px;
+  border-radius: 3px;
+  margin: 10px 0;
+}
+
+.progress-bar div {
+  background: #4caf50;
+  height: 6px;
+  border-radius: 3px;
+}
+
+.amounts {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.residual {
+  font-size: 0.85rem;
+  color: #333;
+  margin-top: 5px;
+}
+
+/* === ADD BUTTON === */
+.add-btn {
+  position: fixed;
+  bottom: 35px;
+  right: 45px;
+  background: #2f6656;
+  color: white;
+  font-size: 2rem;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.add-btn:hover {
+  background: #1d4b3d;
+}
+
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .sidebar {
+    left: -230px;
+    transition: 0.3s;
+  }
+
+  .sidebar.show {
+    left: 0;
+  }
+
+  .topbar {
+    width: 100%;
+    left: 0;
+  }
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 80px 15px 15px;
+  }
+}

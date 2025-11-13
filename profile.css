@@ -1,0 +1,278 @@
+body {
+  background-color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 230px;
+  background-color: #f7b1b1;
+  position: fixed;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 0;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo-area {
+  text-align: center;
+}
+
+.logo-area .logo {
+  width: 45px;
+  height: 45px;
+}
+
+.logo-area h5 {
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.nav-item {
+  color: #000;
+  display: flex;
+  align-items: center;
+  padding: 12px 25px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.nav-item i {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+.nav-item:hover {
+  background-color: #fceaea;
+  border-left: 4px solid #c94c4c;
+}
+
+.logout {
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.logout .nav-item {
+  color: #000;
+}
+
+/* Content */
+.content {
+  margin-left: 230px;
+  padding: 50px;
+}
+
+/* Profile Box */
+.profile-box {
+  background-color: #e6e6e6;
+  padding: 30px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+}
+
+.profile-box input,
+.profile-box select,
+.profile-box textarea {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  font-size: 0.95rem;
+}
+
+.profile-box button {
+  background-color: #007a33;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.profile-box button:hover {
+  background-color: #00994d;
+}
+
+.profile-info p {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.profile-info strong {
+  width: 120px;
+  display: inline-block;
+}
+
+/* Achievements */
+.achievement-card {
+  background: linear-gradient(135deg, #ffc0cb, #ffd700);
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  color: #333;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.achievement-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Confetti animation */
+@keyframes fall {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.confetti-piece {
+  position: fixed;
+  top: -20px;
+  font-size: 24px;
+  animation-name: fall;
+  animation-duration: 3000ms;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  user-select: none;
+  pointer-events: none;
+  opacity: 1;
+}
+
+/* ====== Responsive Design ====== */
+
+/* ----- For tablets and smaller laptops (max-width: 992px) ----- */
+@media (max-width: 992px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    box-shadow: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-area h5 {
+    font-size: 1rem;
+    margin-top: 0;
+  }
+
+  .nav-item {
+    padding: 10px 12px;
+  }
+
+  .nav-item span {
+    display: none; /* Hide labels, keep icons */
+  }
+
+  .content {
+    margin-left: 0;
+    margin-top: 100px;
+    padding: 25px;
+  }
+
+  .profile-box {
+    max-width: 90%;
+    padding: 25px;
+  }
+}
+
+/* ----- For mobile devices (max-width: 768px) ----- */
+@media (max-width: 768px) {
+  .sidebar {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .logo-area {
+    justify-content: center;
+  }
+
+  .nav-item {
+    padding: 8px 10px;
+  }
+
+  .content {
+    margin-top: 90px;
+    padding: 20px;
+  }
+
+  .profile-box {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .profile-box input,
+  .profile-box select,
+  .profile-box textarea {
+    font-size: 0.9rem;
+  }
+
+  .achievement-card {
+    padding: 20px;
+  }
+}
+
+/* ----- For small mobile devices (max-width: 480px) ----- */
+@media (max-width: 480px) {
+  .sidebar {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .logo-area h5 {
+    font-size: 0.9rem;
+  }
+
+  .content {
+    margin-top: 80px;
+    padding: 15px;
+  }
+
+  .profile-box {
+    padding: 16px;
+  }
+
+  .profile-box button {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  .achievement-card {
+    padding: 18px;
+    border-radius: 10px;
+  }
+
+  .confetti-piece {
+    font-size: 20px;
+  }
+}
+

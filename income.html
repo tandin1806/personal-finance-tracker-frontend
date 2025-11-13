@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Income | Personal Finance Tracker</title>
+  <link rel="stylesheet" href="income.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <!-- ✅ Sidebar -->
+  <div class="sidebar">
+    <div class="logo-section">
+      <img src="logo.jpg" alt="Logo" class="logo" />
+      <h2>Personal Finance Tracker</h2>
+    </div>
+
+    <ul>
+      <li><i>🏠</i><a href="dashboard.html">Dashboard</a></li>
+      <li><i>💸</i><a href="expenses.html">Expenses</a></li>
+      <li class="active"><i>💰</i><a href="income.html">Income</a></li>
+      <li><i>📊</i><a href="budget.html">Budget</a></li>
+    </ul>
+
+    <button class="logout" id="logoutBtn">
+      <i>🚪</i> Logout
+    </button>
+  </div>
+
+  <!-- ✅ Main Content -->
+  <div class="main-content">
+    <header>
+      <i class="fas fa-bars menu-icon" id="menuToggle"></i>
+      <h3>Income</h3>
+    </header>
+
+    <div class="income-container">
+      <div class="filter-total">
+        <select id="filter">
+          <option value="">All</option>
+          <option value="wallet">Wallet</option>
+          <option value="bank">Bank Account</option>
+        </select>
+        <span class="total">Total: <strong id="total">Nu.20,356</strong></span>
+      </div>
+
+      <div id="income-list"></div>
+      <button id="add-income">+</button>
+    </div>
+  </div>
+
+  <!-- ✅ Add Income Modal -->
+  <div id="income-modal" class="modal">
+    <div class="modal-content">
+      <h2>ADD NEW INCOME</h2>
+
+      <label>Income Source</label>
+      <input type="text" id="income-source" placeholder="Enter source" />
+
+      <label>Choose Country</label>
+      <select id="income-country">
+        <option value="" disabled selected>Select country</option>
+        <option value="Nu" data-symbol="Nu.">🇧🇹 Bhutan</option>
+        <option value="USD" data-symbol="$">🇺🇸 United States</option>
+        <option value="INR" data-symbol="₹">🇮🇳 India</option>
+        <option value="EUR" data-symbol="€">🇪🇺 Eurozone</option>
+        <option value="GBP" data-symbol="£">🇬🇧 United Kingdom</option>
+      </select>
+
+      <label>Initial Amount</label>
+      <div class="amount-wrapper">
+        <span id="currency-symbol">Nu.</span>
+        <input type="number" id="income-amount" placeholder="Enter amount" />
+      </div>
+
+      <label>Notes</label>
+      <textarea id="income-notes" placeholder="Optional notes..."></textarea>
+
+      <div class="modal-buttons">
+        <button id="cancel-btn">CANCEL</button>
+        <button id="save-btn">ADD</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="income.js"></script>
+</body>
+</html>

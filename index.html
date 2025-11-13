@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Finance Tracker | Landing Page</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body class="landing-page">
+  <!-- ===== HEADER ===== -->
+  <section id="header">
+    <nav>
+      <div class="logo-container">
+        <img src="logo.jpg" class="logo" alt="Logo" />
+        <span class="title">Personal Finance Tracker</span>
+      </div>
+      <div class="nav-buttons">
+        <!-- Features removed as requested -->
+        <button class="btn" onclick="openModal('loginModal')">Login</button>
+        <button class="btn" onclick="openModal('signupModal')">Sign Up</button>
+      </div>
+    </nav>
+
+    <div class="Main">
+      <div class="Main-text">
+        <h1>Manage Your Finances Smartly</h1>
+        <p>
+          Keep track of your income, expenses, and budget all in one place.
+          Simple, secure, and designed for you.
+        </p>
+        <button class="learn-btn" onclick="scrollToFeatures()">Learn More</button>
+      </div>
+      <div class="boy-img">
+        <img src="boy.webp" alt="Finance Illustration" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES ===== -->
+  <section id="features">
+    <div class="feature">
+      <div class="feature-text">
+        <h2>💰 Track Your Income</h2>
+        <p>Monitor your daily, weekly, and monthly income with ease and clarity.</p>
+      </div>
+      <div class="feature-img">
+        <img src="income.image.png" alt="Track Income" />
+      </div>
+    </div>
+
+    <div class="feature reverse">
+      <div class="feature-text">
+        <h2>💸 Manage Expenses</h2>
+        <p>Organize your spending categories to see where your money goes.</p>
+      </div>
+      <div class="feature-img">
+        <img src="expenses.image.png" alt="Manage Expenses" />
+      </div>
+    </div>
+
+    <div class="feature">
+      <div class="feature-text">
+        <h2>📊 Budget Wisely</h2>
+        <p>Set financial goals and track your progress effortlessly with visual insights.</p>
+      </div>
+      <div class="feature-img">
+        <img src="budget.image.png" alt="Budget Wisely" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LOGIN MODAL (with Forgot Password restored) ===== -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('loginModal')">&times;</span>
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="email" id="login-email" placeholder="Email" required />
+        <input type="password" id="login-password" placeholder="Password" required />
+        <div style="margin-top:8px; text-align:left;">
+          <a href="#" onclick="event.preventDefault(); closeModal('loginModal'); openModal('forgotModal');" class="forgot-link">Forgot password?</a>
+        </div>
+        <button type="submit" class="modal-btn">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== FORGOT PASSWORD MODAL ===== -->
+  <div id="forgotModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('forgotModal')">&times;</span>
+      <h2>Reset Password</h2>
+      <p>Enter your account email and we'll send a password reset link.</p>
+      <form id="forgotForm">
+        <input type="email" id="forgot-email" placeholder="Email" required />
+        <button type="submit" class="modal-btn">Send Reset Link</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== SIGNUP MODAL ===== -->
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('signupModal')">&times;</span>
+      <h2>Sign Up</h2>
+      <form id="signupForm">
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <button type="submit" class="modal-btn">Create Account</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // small handlers to keep behavior consistent if landingpage.js doesn't handle these forms
+    document.addEventListener('DOMContentLoaded', () => {
+      const loginForm = document.getElementById('loginForm');
+      if (loginForm) {
+        loginForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          // simulate login redirect
+          window.location.href = 'dashboard.html';
+        });
+      }
+
+      const signupForm = document.getElementById('signupForm');
+      if (signupForm) {
+        signupForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          window.location.href = 'dashboard.html';
+        });
+      }
+
+      const forgotForm = document.getElementById('forgotForm');
+      if (forgotForm) {
+        forgotForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const email = document.getElementById('forgot-email').value;
+          // simulate sending reset link
+          alert('If an account exists for ' + email + ', a reset link has been sent.');
+          closeModal('forgotModal');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Personal Finance Tracker - Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="logo.jpg" alt="Logo" />
+        <h2>Personal Finance Tracker</h2>
+      </div>
+
+      <nav class="nav">
+        <a href="dashboard.html" class="active"><i>📊</i> Dashboard</a>
+        <a href="expenses.html"><i>💸</i> Expenses</a>
+        <a href="income.html"><i>💰</i> Income</a>
+        <a href="budget.html"><i>📅</i> Budget</a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <a href="profile.html" class="profile-link"><i>👤</i> Profile</a>
+        <a href="#" id="logoutBtn" class="logout"><i>🚪</i> Logout</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="topbar">
+        <i class="fa fa-bars menu-icon" id="menuToggle"></i>
+        <h1>Dashboard</h1>
+      </header>
+
+      <section class="cards">
+        <div class="card summary">
+          <h3>Summary</h3>
+          <p>Balance: <span class="green">Nu. 5000</span></p>
+          <p>Income: <span class="green">Nu. 2500</span></p>
+          <p>Expense: <span class="red">Nu. 2500</span></p>
+        </div>
+        <div class="card chart-card">
+          <h3>This Month</h3>
+          <canvas id="donut1"></canvas>
+        </div>
+        <div class="card chart-card">
+          <h3>This Month</h3>
+          <canvas id="donut2"></canvas>
+        </div>
+      </section>
+
+      <section class="charts">
+        <div class="chart-box">
+          <h3>Last 7 Days</h3>
+          <canvas id="barChart"></canvas>
+        </div>
+        <div class="chart-box">
+          <h3>Balance Trend</h3>
+          <canvas id="lineChart"></canvas>
+        </div>
+      </section>
+
+      <section class="budget-section">
+        <h3>Budgets</h3>
+        <div class="budget-item">
+          <p>Entertainment</p>
+          <div class="progress"><div class="fill" style="width:50%; background-color:#ffca28;"></div></div>
+          <span>50% | Nu. 3200</span>
+        </div>
+        <div class="budget-item">
+          <p>Shopping</p>
+          <div class="progress"><div class="fill" style="width:75%; background-color:#ff9800;"></div></div>
+          <span>75% | Nu. 4250</span>
+        </div>
+        <div class="budget-item">
+          <p>Transportation</p>
+          <div class="progress"><div class="fill" style="width:30%; background-color:#4caf50;"></div></div>
+          <span>30% | Nu. 1675</span>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="dashboard.js"></script>
+
+  <script>
+    // Sidebar toggle
+    const sidebar = document.querySelector('.sidebar');
+    const menuToggle = document.getElementById('menuToggle');
+    menuToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('show');
+    });
+
+    // Logout functionality
+    document.getElementById('logoutBtn').addEventListener('click', function (e) {
+      e.preventDefault();
+      // Redirect to landing page (update filename if different)
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>
